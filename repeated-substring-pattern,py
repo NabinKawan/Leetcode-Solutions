@@ -1,0 +1,29 @@
+class Solution:
+    def repeatedSubstringPattern(self, s: str) -> bool:
+       if len(s) == 1:
+        return False
+       proceed = self.check_for_same(s)
+       if proceed == True:
+            return True
+       for i in range(len(s)):
+        for j in range(i):
+            word = s[0:j]
+            if len(word) > 1:
+                if word in s[j::]:
+                    return True 
+       return False
+    
+
+    def check_for_same(self , word):
+        for i in range(len(word)-1):
+            if word[i] != word[i+1]:
+                return False
+        return True
+
+        
+
+test = Solution()
+print(test.repeatedSubstringPattern("abab"))
+print(test.repeatedSubstringPattern("aba"))
+print(test.repeatedSubstringPattern("abac"))
+print(test.repeatedSubstringPattern('bb'))

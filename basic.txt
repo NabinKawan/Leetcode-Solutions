@@ -1,0 +1,1 @@
+select buyer from ticket where number_of_ticket = max(ticket.number_of_ticket);
