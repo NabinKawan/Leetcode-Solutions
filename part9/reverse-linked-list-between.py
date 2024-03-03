@@ -8,7 +8,8 @@ class Solution:
         self.list = []
         left -= 1
         right -=1
-        self.head = None
+
+        self.head = None 
         self.tail = None
 
         if head is None or head.next is None:
@@ -21,25 +22,23 @@ class Solution:
         
         between_nodes = self.list[left:right+1][::-1]
 
-        self.result = self.list[:left] + between_nodes + self.list[right+1:]
+        self.result = self.list[:left] + between_nodes + self.list[right:]
 
         for node in self.result:
-          print(node.val)
-          self.append_to_list(node)
+          self.link_to_list(node)
         
         self.tail.next = None 
 
         return self.head
-      
     
-    def append_to_list(self , node):
-      if self.head is None:
+
+    def link_to_list(self , node):
+      if head is None:
         self.head = node 
         self.tail = self.head 
       else:
-        self.tail.next = node
-        self.tail = node
-          
+        self.tail.next = node 
+        self.tail = node          
 
 
 
